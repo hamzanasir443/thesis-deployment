@@ -41,11 +41,11 @@ pipeline{
 		//  	}
 		//  }
 
-        stage('Pushing Image') {
+         stage('Pushing Image') {
             environment {
                registryCredential = 'access-toke-docker-hub'
            }
-            stepSs{
+            steps{
                script {
                  docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
                    //dockerImage.push("")
