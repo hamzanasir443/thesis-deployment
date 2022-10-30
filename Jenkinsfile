@@ -4,7 +4,7 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('access-toke-docker-hub')
+		//DOCKERHUB_CREDENTIALS=credentials('access-toke-docker-hub')
         //ARTIFACTORY_CREDENTIALS=credentials('evsil-import-dev-jfrog')
         //IMAGE_NAME='evisl-import-image'
         //IMAGE_VERSION='evisl-import-image erl-artifactory7.eso.local/eso_evisl_importer_docker_local/evisl-dev:v1'
@@ -34,12 +34,25 @@ pipeline{
 		//  	    def dockerHome = tool 'mydocker'
         //         env.PATH = "${dockerHome}/bin:${env.PATH}"
 		//  	} }
-        stage('Login') {
+        // stage('Login') {
 
-		 	steps {
-		 		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login https://registry.hub.docker.com -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-		 	}
-		 }
+		//  	steps {
+		//  		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login https://registry.hub.docker.com -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		//  	}
+		//  }
+
+        stage('Pushing Image') {
+            environment {
+               registryCredential = 'access-toke-docker-hub'
+           }
+            stepSs{
+               script {
+                 docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+                   //dockerImage.push("")
+          }
+        }
+      }
+    }
        
     //    stage('sign the container image') {
     //        steps {
