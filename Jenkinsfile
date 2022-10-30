@@ -3,15 +3,15 @@ pipeline{
 
 	agent any
 
-	environment {
-		//DOCKERHUB_CREDENTIALS=credentials('access-toke-docker-hub')
-        //ARTIFACTORY_CREDENTIALS=credentials('evsil-import-dev-jfrog')
-        //IMAGE_NAME='evisl-import-image'
-        //IMAGE_VERSION='evisl-import-image erl-artifactory7.eso.local/eso_evisl_importer_docker_local/evisl-dev:v1'
-        /* COSIGN_PASSWORD=credentials('cosign-password')
-        COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
-        COSIGN_PUBLIC_KEY=credentials('cosign-public-key') */
-	}
+	// environment {
+	// 	//DOCKERHUB_CREDENTIALS=credentials('access-toke-docker-hub')
+    //     //ARTIFACTORY_CREDENTIALS=credentials('evsil-import-dev-jfrog')
+    //     //IMAGE_NAME='evisl-import-image'
+    //     //IMAGE_VERSION='evisl-import-image erl-artifactory7.eso.local/eso_evisl_importer_docker_local/evisl-dev:v1'
+    //     /* COSIGN_PASSWORD=credentials('cosign-password')
+    //     COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
+    //     COSIGN_PUBLIC_KEY=credentials('cosign-public-key') */
+	// }
 
 	 stages {
 
