@@ -15,12 +15,16 @@ pipeline{
 
 	 stages {
 
-		// stage('Build') {
+		 stage('Build') {
 
-		// 	steps {
-		// 		sh 'docker build -t evisl-import-image .'
-		// 	}
-		// } 
+		 	steps {
+		 		sh '''
+                cd $WORKSPACE/users-api
+                docker build -t user-api .
+                
+                '''
+		 	}
+		 } 
        
        
 		// stage('Tag') {
@@ -48,7 +52,7 @@ pipeline{
             steps{
                script {
                  docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-                   //dockerImage.push("")
+                   dockerImage.push("latest")
           }
         }
       }
