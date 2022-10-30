@@ -33,9 +33,7 @@ pipeline{
         //     steps {
 		//  	    def dockerHome = tool 'mydocker'
         //         env.PATH = "${dockerHome}/bin:${env.PATH}"
-		//  	}
-             
-    }
+		//  	} }
         stage('Login') {
 
 		 	steps {
