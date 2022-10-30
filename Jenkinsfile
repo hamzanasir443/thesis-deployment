@@ -29,7 +29,10 @@ pipeline{
 		// 		sh 'docker tag  evisl-import-image erl-artifactory7.eso.local/eso_evisl_importer_docker_local/evisl-dev:v1'
 		// 	}
 		// } 
-       
+        stage('Initialize'){
+             def dockerHome = tool 'myDocker'
+             env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
         stage('Login') {
 
 		 	steps {
