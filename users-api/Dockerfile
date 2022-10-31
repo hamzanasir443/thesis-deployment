@@ -4,9 +4,6 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN npm install \
-&& npm config rm proxy \
-&& npm config rm https-proxy
 COPY . .
 
 EXPOSE 8080
