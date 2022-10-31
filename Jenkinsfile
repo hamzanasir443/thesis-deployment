@@ -21,6 +21,10 @@ pipeline{
 		 		sh '''
                 cd $WORKSPACE/users-api
                 docker build -t user-api .
+                cd $WORKSPACE/auth-api
+                docker build -t auth-api .
+                cd $WORKSPACE/tasks-api
+                docker build -t tasks-api .
                 
                 '''
 		 	}
@@ -52,7 +56,7 @@ pipeline{
             steps{
                script {
                  docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-                   dockerImage.push("latest")
+                   docker push hamzanasir443/example-esolutions-thesis:latest
           }
         }
       }
