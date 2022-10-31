@@ -56,7 +56,7 @@ pipeline{
             steps{
                script {
                  docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-                   docker push hamzanasir443/example-esolutions-thesis:latest
+                 sh  'docker push hamzanasir443/example-esolutions-thesis:latest'
           }
         }
       }
